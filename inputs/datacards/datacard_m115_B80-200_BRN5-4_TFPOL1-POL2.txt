@@ -1,0 +1,108 @@
+imax 7
+jmax *
+kmax *
+----------------------------------------------------------------------------------------------------
+shapes          data_obs        *   ../root/data_shapes_workspace_B80-200_BRN5-4_TFPOL1-POL2.root w:data_hist_$CHANNEL          
+shapes          qcd             *   ../root/data_shapes_workspace_B80-200_BRN5-4_TFPOL1-POL2.root w:qcd_model_POL1POL2_$CHANNEL 
+shapes          top             *   ../root/data_shapes_workspace_B80-200_BRN5-4_TFPOL1-POL2.root w:Top_model_$CHANNEL          
+shapes          zjets           *   ../root/data_shapes_workspace_B80-200_BRN5-4_TFPOL1-POL2.root w:Z_model_$CHANNEL            
+shapes          qqH             *   ../root/sig_shapes_workspace_B80-200.root w:signal_model_m115_$CHANNEL  
+shapes          ggH             *   ../root/sig_shapes_workspace_B80-200.root w:signal_model_m115_$CHANNEL  
+----------------------------------------------------------------------------------------------------
+bin            CAT0      CAT1      CAT2      CAT3      CAT4      CAT5      CAT6      
+observation    -1        -1        -1        -1        -1        -1        -1        
+----------------------------------------------------------------------------------------------------
+bin            CAT0    CAT0    CAT0    CAT0    CAT0    CAT1    CAT1    CAT1    CAT1    CAT1    CAT2    CAT2    CAT2    CAT2    CAT2    CAT3    CAT3    CAT3    CAT3    CAT3    CAT4    CAT4    CAT4    CAT4    CAT4    CAT5    CAT5    CAT5    CAT5    CAT5    CAT6    CAT6    CAT6    CAT6    CAT6    
+process        qqH     ggH     qcd     top     zjets   qqH     ggH     qcd     top     zjets   qqH     ggH     qcd     top     zjets   qqH     ggH     qcd     top     zjets   qqH     ggH     qcd     top     zjets   qqH     ggH     qcd     top     zjets   qqH     ggH     qcd     top     zjets   
+process        0       -1      1       1       1       0       -1      1       1       1       0       -1      1       1       1       0       -1      1       1       1       0       -1      1       1       1       0       -1      1       1       1       0       -1      1       1       1       
+rate           65.4188 67.7387 546121  3778.51 2319.98 170.922 63.1259 321039  1471.64 1718.84 70.76   9.93902 32740   108.717 202.025 68.826  4.1714  10874   38.9485 70.8795 40.8562 10.0334 203865  535.838 659.988 73.3243 11.3519 108279  328.363 371.982 39.0852 3.13428 15151   50.7149 62.8336 
+----------------------------------------------------------------------------------------------------
+BR                        lnN     1.024      1.024      -          -          -         1.024      1.024      -          -          -         1.024      1.024      -          -          -         1.024      1.024      -          -          -         1.024      1.024      -          -          -         1.024      1.024      -          -          -         1.024      1.024      -          -          -         
+QCDscale_qqh              lnN     1.002      -          -          -          -         1.002      -          -          -          -         1.002      -          -          -          -         1.002      -          -          -          -         1.002      -          -          -          -         1.002      -          -          -          -         1.002      -          -          -          -         
+QCDscale_ggh              lnN     -          1.081      -          -          -         -          1.081      -          -          -         -          1.081      -          -          -         -          1.081      -          -          -         -          1.081      -          -          -         -          1.081      -          -          -         -          1.081      -          -          -         
+pdf_qqbar                 lnN     1.028      -          -          -          -         1.028      -          -          -          -         1.028      -          -          -          -         1.028      -          -          -          -         1.028      -          -          -          -         1.028      -          -          -          -         1.028      -          -          -          -         
+pdf_gg                    lnN     -          1.076      -          -          -         -          1.076      -          -          -         -          1.076      -          -          -         -          1.076      -          -          -         -          1.076      -          -          -         -          1.076      -          -          -         -          1.076      -          -          -         
+lumi                      lnN     1.026      1.026      -          -          -         1.026      1.026      -          -          -         1.026      1.026      -          -          -         1.026      1.026      -          -          -         1.026      1.026      -          -          -         1.026      1.026      -          -          -         1.026      1.026      -          -          -         
+CMS_scale_j_ACCEPT        lnN     1.06       1.08       -          -          -         1.08       1.1        -          -          -         1.09       1.12       -          -          -         1.1        1.12       -          -          -         1.06       1.04       -          -          -         1.08       1.09       -          -          -         1.1        1.1        -          -          -         
+pdf_ACCEPT                lnN     1.05       1.05       -          -          -         1.05       1.05       -          -          -         1.05       1.05       -          -          -         1.05       1.05       -          -          -         1.05       1.05       -          -          -         1.05       1.05       -          -          -         1.05       1.05       -          -          -         
+CMS_res_j_ACCEPT          lnN     0.97       0.99       -          -          -         0.96       0.99       -          -          -         0.97       0.95       -          -          -         0.98       0.96       -          -          -         0.99       0.91       -          -          -         0.98       0.99       -          -          -         0.99       0.95       -          -          -         
+CMS_qqH_hbb_trigger       lnN     1.03       1.05       -          -          -         1.04       1.05       -          -          -         1.05       1.1        -          -          -         1.06       1.15       -          -          -         1.01       1.09       -          -          -         1.01       1.09       -          -          -         1.02       1.19       -          -          -         
+CMS_qqH_hbb_btag          lnN     1.03       0.99       -          -          -         0.99       0.97       -          -          -         0.97       0.93       -          -          -         0.94       0.93       -          -          -         1.01       0.93       -          -          -         0.94       0.97       -          -          -         0.91       0.9        -          -          -         
+CMS_qqH_hbb_qgl           lnN     1.03       1.03       -          -          -         1.01       1.01       -          -          -         1          1          -          -          -         0.98       0.98       -          -          -         1.03       1.03       -          -          -         1.01       1.01       -          -          -         0.98       0.98       -          -          -         
+UEPS                      lnN     1.04       1.25       -          -          -         1.02       1.1        -          -          -         0.97       0.8        -          -          -         0.93       0.9        -          -          -         1.02       0.65       -          -          -         1.03       1.65       -          -          -         1.04       1.45       -          -          -         
+CMS_qqH_hbb_QCDscale      lnN     1          -          -          -          -         1          -          -          -          -         1.01       -          -          -          -         1.02       -          -          -          -         1.03       -          -          -          -         1.03       -          -          -          -         1.05       -          -          -          -         
+CMS_ggH_hbb_QCDscale      lnN     -          1          -          -          -         -          1          -          -          -         -          1.01       -          -          -         -          1.02       -          -          -         -          1.03       -          -          -         -          1.03       -          -          -         -          1.05       -          -          -         
+CMS_qqH_hbb_pdf           lnN     1.02       -          -          -          -         1.02       -          -          -          -         1.02       -          -          -          -         1.02       -          -          -          -         1.03       -          -          -          -         1.03       -          -          -          -         1.03       -          -          -          -         
+CMS_ggH_hbb_pdf           lnN     -          1.04       -          -          -         -          1.04       -          -          -         -          1.04       -          -          -         -          1.04       -          -          -         -          1.05       -          -          -         -          1.04       -          -          -         -          1.04       -          -          -         
+----------------------------------------------------------------------------------------------------
+CMS_vbfbb_qcd_norm_CAT0   lnU     -          -          1.5        -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_qcd_norm_CAT1   lnU     -          -          -          -          -         -          -          1.5        -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_qcd_norm_CAT2   lnU     -          -          -          -          -         -          -          -          -          -         -          -          1.5        -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_qcd_norm_CAT3   lnU     -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          1.5        -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_qcd_norm_CAT4   lnU     -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          1.5        -          -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_qcd_norm_CAT5   lnU     -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          1.5        -          -         -          -          -          -          -         
+CMS_vbfbb_qcd_norm_CAT6   lnU     -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          1.5        -          -         
+----------------------------------------------------------------------------------------------------
+CMS_vbfbb_zjets_norm_CAT0 lnN     -          -          -          -          1.3       -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_zjets_norm_CAT1 lnN     -          -          -          -          -         -          -          -          -          1.3       -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_zjets_norm_CAT2 lnN     -          -          -          -          -         -          -          -          -          -         -          -          -          -          1.3       -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_zjets_norm_CAT3 lnN     -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          1.3       -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_zjets_norm_CAT4 lnN     -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          1.3       -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_zjets_norm_CAT5 lnN     -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          1.3       -          -          -          -          -         
+CMS_vbfbb_zjets_norm_CAT6 lnN     -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          1.3       
+CMS_vbfbb_top_norm_CAT0   lnN     -          -          -          1.3        -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_top_norm_CAT1   lnN     -          -          -          -          -         -          -          -          1.3        -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_top_norm_CAT2   lnN     -          -          -          -          -         -          -          -          -          -         -          -          -          1.3        -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_top_norm_CAT3   lnN     -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          1.3        -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_top_norm_CAT4   lnN     -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          1.3        -         -          -          -          -          -         -          -          -          -          -         
+CMS_vbfbb_top_norm_CAT5   lnN     -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          1.3        -         -          -          -          -          -         
+CMS_vbfbb_top_norm_CAT6   lnN     -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          -          -         -          -          -          1.3        -         
+----------------------------------------------------------------------------------------------------
+CMS_vbfbb_scale_mbb_selNOM     param            1.0      0.02
+CMS_vbfbb_scale_mbb_selVBF     param            1.0      0.02
+CMS_vbfbb_res_mbb_selNOM       param            1.0       0.1
+CMS_vbfbb_res_mbb_selVBF       param            1.0       0.1
+
+----------------------------------------------------------------------------------------------------
+mean_m115_CAT0                 param        115.938  0.139152
+mean_m115_CAT1                 param         116.05 0.0750654
+mean_m115_CAT2                 param        116.483  0.117075
+mean_m115_CAT3                 param          116.7 0.0957818
+mean_m115_CAT4                 param        113.658  0.272399
+mean_m115_CAT5                 param        114.568  0.145097
+mean_m115_CAT6                 param        115.349  0.113195
+sigma_m115_CAT0                param        10.7671  0.135148
+sigma_m115_CAT1                param        10.4424 0.0712993
+sigma_m115_CAT2                param        10.0922  0.110336
+sigma_m115_CAT3                param        9.98026 0.0756513
+sigma_m115_CAT4                param        12.6591  0.234914
+sigma_m115_CAT5                param        11.6391  0.142458
+sigma_m115_CAT6                param        11.3121  0.106471
+Top_mean_CAT0                  param         130.35    1.3035
+Top_mean_CAT1                  param        130.729   1.30729
+Top_mean_CAT2                  param        130.863   1.30863
+Top_mean_CAT3                  param         130.42    1.3042
+Top_mean_CAT4                  param        121.059   1.21059
+Top_mean_CAT5                  param        121.922   1.21922
+Top_mean_CAT6                  param        128.343   1.28343
+Top_sigma_CAT0                 param        43.9795   2.19897
+Top_sigma_CAT1                 param        44.8186   2.24093
+Top_sigma_CAT2                 param        45.3739    2.2687
+Top_sigma_CAT3                 param        49.0209   2.45105
+Top_sigma_CAT4                 param        44.8702   2.24351
+Top_sigma_CAT5                 param        37.4965   1.87482
+Top_sigma_CAT6                 param        35.0051   1.75025
+Z_mean_CAT0                    param        96.0563  0.386065
+Z_mean_CAT1                    param        96.2655  0.404731
+Z_mean_CAT2                    param        96.8575   1.00442
+Z_mean_CAT3                    param        99.2645  0.710338
+Z_mean_CAT4                    param        95.8116    1.0029
+Z_mean_CAT5                    param        96.3627   1.10771
+Z_mean_CAT6                    param        98.1316  0.314451
+Z_sigma_CAT0                   param        9.76338  0.436034
+Z_sigma_CAT1                   param        9.53566  0.435375
+Z_sigma_CAT2                   param         9.4445  0.772173
+Z_sigma_CAT3                   param        9.35955  0.548121
+Z_sigma_CAT4                   param        10.9515   1.19698
+Z_sigma_CAT5                   param        10.8089   1.20914
+Z_sigma_CAT6                   param        9.00001 0.0168184
