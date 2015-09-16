@@ -26,12 +26,13 @@ options="\n
    RUNOPTS:\n\n
    0\tall\n
 	\n
-	0A\tall workspace preparation 1-5\n
+	0A\tall workspace preparation 1-5 (not 6)\n
    1\tmkTransferFunctions\n
    2\tmkBkgTemplates\n
    3\tmkSigTemplates\n
    4\tmkDataTemplates\n
    5\tmkDatacards\n
+	6\tmkDatacards (CATvetoes)\n
 	\n
 	1A\tall limit calculations 10-16 (not 17)\n
 	10\tmkToys\n
@@ -102,6 +103,9 @@ if [ "$1" == "0" ] || [ "$1" == "0A" ] || [ "$1" == "5" ];then
 	cmd="./src/mkDatacards.py --workdir ${workdir} --long --TF ${TF}"
 	echo ${cmd}
 	eval ${cmd} | grep -v "Developed by Wouter" | grep -v "Copyright (C)" | grep -v "All rights reserved" | grep -v "^$"
+fi
+##################################################
+if [ "$1" == "0" ] || [ "$1" == "6" ];then
 	for c in "1" "2" "3" "5" "6" "4,5,6" "0,1,2,3"; do
 		cmd="./src/mkDatacards.py --workdir ${workdir} --long --TF ${TF} --CATveto $c"
 		echo ${cmd}
