@@ -37,12 +37,12 @@ options="\n
 	1A\tall limit calculations 10-16 (not 17)\n
 	10\tmkToys\n
 	11\tmkAsymptotic limits\n
-	12\tmkAsymptotic limits (injected)\n
-	13\tmkMaxLikelihoodFit\n
-	14\tmkProfileLikelihoodExp\n
-	15\tmkProfileLikelihoodObs\n
-	16\tmkNuisances\n
-	17\tmkAsymptotic (CATvetoes) limits\n
+	12\tmkAsymptotic limits (vetoes)\n
+	13\tmkAsymptotic limits (injected)\n
+	14\tmkMaxLikelihoodFit\n
+	15\tmkProfileLikelihoodExp\n
+	16\tmkProfileLikelihoodObs\n
+	17\tmkNuisances\n
 	\n
 	2A\tall plots (20-22)\n
 	20\tplot asymptotic limit\n
