@@ -3,7 +3,7 @@ import ROOT
 from ROOT import *
 from optparse import OptionParser
 from copy import deepcopy as dc
-import os,sys,re
+import os,sys,re,operator
 import numpy
 from array import *
 
@@ -67,58 +67,75 @@ def main(opts,limnames):
 # Load input files
 	limfiles = []
 	limits = []
+	masses = []
 	print "Limit files:"
 	for limname in [os.path.split(x)[1] for x in limnames]:
 		if limname == '': sys.exit('No useable root file given. Exiting.')
 		if not os.path.exists(limname): sys.exit('Specified root file doesn\'t exist. Exiting.')
+		if os.path.getsize(limname)<1000: 
+			print "\t - %s --> TOO SMALL, SKIPPED!"%limname
+			continue
+		MH = re.search(".*mH([0-9]{3}).*",limname).group(1)
 		try:
 			limfiles.append(TFile.Open(limname))
 			limfile = limfiles[-1]
 			print "\t - %s"%limname
 			limits.append(limfile.Get('limit'))
 			limit = limits[-1]
+			masses.append(float(MH))
+			m = masses[-1]
 		except:
 			pass
 	
+	masses = sorted(list(set(masses)))
+	
 ####################
 # Prepare containers
-	lists = {'aMass':[],'ExpLimit95D':[],'ExpLimit68D':[],'ExpLimitMed':[],'ExpLimit68U':[],'ExpLimit95U':[],'ObsLimit':[],'InjLimit':[],'aMassErr':[],'Exp68U':[],'Exp68D':[],'Exp95U':[],'Exp95D':[],'ExpSig':[],'ObsSig':[],'Mu':[],'Mu68D':[],'Mu68U':[]}
+	bare = [0.]*len(masses)
+	lists = {'aMass':dc(bare),'ExpLimit95D':dc(bare),'ExpLimit68D':dc(bare),'ExpLimitMed':dc(bare),'ExpLimit68U':dc(bare),'ExpLimit95U':dc(bare),'ObsLimit':dc(bare),'InjLimit':dc(bare),'aMassErr':dc(bare),'Exp68U':dc(bare),'Exp68D':dc(bare),'Exp95U':dc(bare),'Exp95D':dc(bare),'ExpSig':dc(bare),'ObsSig':dc(bare),'Mu':dc(bare),'Mu68D':dc(bare),'Mu68U':dc(bare)}
 	positions = {0:'ExpLimit95D',1:'ExpLimit68D',2:'ExpLimitMed',3:'ExpLimit68U',4:'ExpLimit95U'}
 	
 # Loop over files and fill containers
 	for ilimit, limit in enumerate(limits):
+		print limfiles[ilimit]
 		nentries = limit.GetEntries()
+		limit.Print()
 		lm, mh = treeAccess(limit)
 		if 'Asymptotic' in limnames[ilimit]:
 			for ientry in range(nentries):
 				limit.GetEntry(ientry)
-				if ientry<5 and not 'Inj' in limnames[ilimit]: lists[positions[ientry]].append(dc(lm))
-				elif ientry >= 5 and 'Inj' in limnames[ilimit]: lists['InjLimit'].append(dc(lm))
-				elif ientry >= 5: lists['ObsLimit'].append(dc(lm))
+				mi = masses.index(mh)
+				if ientry<5 and not 'Inj' in limnames[ilimit]:   lists[positions[ientry]][mi] = dc(lm)
+				elif ientry >= 5 and 'Inj' in limnames[ilimit]:  lists['InjLimit'][mi] = dc(lm)
+				elif ientry >= 5:                                lists['ObsLimit'][mi] = dc(lm)
 				elif ientry<5: continue
 				else: print "unknown case!", ientry, lm, mh
-			lists['Exp68U'].append(lists['ExpLimit68U'][-1] - lists['ExpLimitMed'][-1])
-			lists['Exp68D'].append(lists['ExpLimitMed'][-1] - lists['ExpLimit68D'][-1])
-			lists['Exp95U'].append(lists['ExpLimit95U'][-1] - lists['ExpLimitMed'][-1])
-			lists['Exp95D'].append(lists['ExpLimitMed'][-1] - lists['ExpLimit95D'][-1])
+			if len(lists['ExpLimit68U'])>0:
+				for k in ['Exp68U','Exp95U']:
+					map(operator.sub, lists[k], lists['ExpLimitMed'])
+				for k in ['Exp68D','Exp95D']:
+					map(operator.sub, lists['ExpLimitMed'], lists[k])
 			if not 'Inj' in limnames[ilimit]: 
-				lists['aMass'].append(dc(mh))
-				lists['aMassErr'].append(0.)
+				lists['aMass'][mi] = dc(mh)
+				lists['aMassErr'][mi] = 0.
 			if not any(['Inj' in x for x in limnames]):
-				lists['InjLimit'].append(0.)
+				lists['InjLimit'][mi] = 0.
 		elif 'Profile' in limnames[ilimit]:
 			for ientry in range(nentries):
 				limit.GetEntry(ientry)
-				if ientry == 0 and 'ExpSig' in limnames[ilimit]: lists['ExpSig'].append(dc(lm))
-				elif ientry == 0 and 'ObsSig' in limnames[ilimit]: lists['ObsSig'].append(dc(lm))
+				mi = masses.index(mh)
+				if ientry == 0 and 'ExpSig' in limnames[ilimit]:    lists['ExpSig'][mi] = dc(lm)
+				elif ientry == 0 and 'ObsSig' in limnames[ilimit]:  lists['ObsSig'][mi] = dc(lm)
 				else: print "unknown case!", ientry, lm, mh
 		elif 'Max' in limnames[ilimit]:
 			for ientry in range(nentries):
 				limit.GetEntry(ientry)
-				if ientry == 0: lists['Mu'].append(dc(lm))
-				elif ientry == 1: lists['Mu68D'].append(dc(lm) - lists['Mu'][-1])
-				elif ientry == 2: lists['Mu68U'].append(dc(lm) - lists['Mu'][-1])
+				mi = masses.index(mh)
+				if ientry == 0:     lists['Mu'][mi] = dc(lm)
+				elif ientry == 1:   lists['Mu68D'][mi] = dc(lm) - lists['Mu'][mi]
+				elif ientry == 2:   lists['Mu68U'][mi] = dc(lm) - lists['Mu'][mi]
 				else: print "unknown case!", ientry, lm, mh
+		print
 
 	print
 	arrays = dict([(k,array('d',v)) for (k,v) in lists.iteritems()])
@@ -146,12 +163,14 @@ def main(opts,limnames):
 	print "#"*200
 	print 
 	print
-	print "%6s | %8s | %8s | %8s | %8s | %20s"%("mH","ExpLim","ObsLim","ExpSig","ObsSig","Mu")
-	print "-"*74
-	for i,m in enumerate(range(115,140,5)):
+	print "%6s | %8s | %8s | %8s | %8s | %8s | %20s |"%("mH","ExpLim","ObsLim","InjLim","ExpSig","ObsSig","Mu")
+	print "-"*86
+	for i,m in enumerate(masses):#enumerate(range(115,140,5)):
 		print "%6d |"%m,
 		print "%8.2f |"%arrays['ExpLimitMed'][i],
 		try: print "%8.2f |"%arrays['ObsLimit'][i],
+		except: print "%8s |"%" ",
+		try: print "%8.2f |"%arrays['InjLimit'][i],
 		except: print "%8s |"%" ",
 		try: print "%8.2f |"%arrays['ExpSig'][i],
 		except: print "%8s |"%" ",
@@ -160,7 +179,7 @@ def main(opts,limnames):
 		try: 
 			print "%8.2f"%arrays['Mu'][i],
 			print "%+5.2f"%arrays['Mu68U'][i],
-			print "%+5.2f"%arrays['Mu68D'][i]
+			print "%+5.2f |"%arrays['Mu68D'][i]
 		except: print "%20s |"%" "
 	print 
 	print

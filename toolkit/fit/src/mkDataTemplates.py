@@ -194,7 +194,7 @@ def main():
 			for ib in range(opts.BRN[iS]+1):
 				if C>0: continue
 				nb = "b%d_sel%s_CAT%d"%(ib,S.tag,Cp)
-				brn[nb] = RooRealVar(nb,nb,0.5,0.,10.)
+				brn[nb] = RooRealVar(nb,nb,0.5,0,10.)
 				nbp = "sel%s_CAT%d"%(S.tag,Cp)
 				if not nbp in brn_params: brn_params[nbp] = RooArgList()
 				brn_params[nbp].add(brn[nb])
@@ -209,7 +209,6 @@ def main():
 				ntf = "trans_%s_CAT%d"%(opts.TF[iS],Cp)
 				for ip in range(npar):
 					if not ntf in trans_p: trans_p[ntf] = []
-					
 					trans_p[ntf] += [RooRealVar(ntf+"_p%d"%ip,ntf+"_p%d"%ip,ftf.GetParameter(ip),-0.1,0.1)]
 					if 'Fix' in opts.TF[iS]:
 						trans_p[ntf][-1].setError(fTF[opts.TF[iS]]['scale'][Cp]*ftf.GetParError(ip))

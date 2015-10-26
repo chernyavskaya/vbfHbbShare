@@ -1,23 +1,26 @@
 {
 	"GenerateOnly" : {
-								"opts" : "-M GenerateOnly -t -1 --saveToys --expectSignal=1"
+								"opts" : "-M GenerateOnly --X-rtd ADDNLL_RECURSIVE=0 -t -1 --saveToys --expectSignal=1"
 						  },
 	"ProfileLikelihoodExp" : {
-	       							"opts" : "-M ProfileLikelihood --significance -t -1 --expectSignal=1 --toysFreq"
+	       							"opts" : "-M ProfileLikelihood --X-rtd ADDNLL_RECURSIVE=0 --significance -t -1 --expectSignal=1 --toysFreq"
 									 },
 	"ProfileLikelihoodObs" : {
-	       							"opts" : "-M ProfileLikelihood --significance --bruteForce --preFit --scanPoints=100 -v 2--minimizerTolerance=0.009"
+	       							"opts" : "-M ProfileLikelihood --X-rtd ADDNLL_RECURSIVE=0 --significance --bruteForce --preFit --scanPoints=80 -v 2 --minimizerTolerance=0.010"
 	  							    },
 	"MaxLikelihoodFit" : {
-	       							"opts" : "-M MaxLikelihoodFit -v 2 --saveNormalizations --plots --stepSize=0.05 --preFitValue=2.0 --robustFit=1 --X-rtd FITTER_NEW_CROSSING_ALGO --minimizerAlgoForMinos=Minuit2 --minimizerToleranceForMinos=0.005 --X-rtd FITTER_NEVER_GIVE_UP --X-rtd FITTER_BOUND --minimizerTolerance=0.005 --cminFallbackAlgo Minuit,0.001 --minimizerStrategy=1 --rMin=-4 --rMax=8"
+	       							"opts" : "-M MaxLikelihoodFit -v 2 --X-rtd FITTER_NEVER_GIVE_UP --X-rtd FITTER_BOUND --X-rtd ADDNLL_RECURSIVE=0 --X-rtd FITTER_NEW_CROSSING_ALGO --saveNormalizations --plots --stepSize=0.05 --preFitValue=2.0 --robustFit=1 --minimizerAlgoForMinos=Minuit2 --minimizerToleranceForMinos=0.01 --minimizerTolerance=0.01 --cminFallbackAlgo Minuit,0.005 --minimizerStrategy=1 --rMin=-4 --rMax=8"
 								},
 	"Asymptotic" : {
-							"opts" : "-M Asymptotic -v 2 --rMin=-5 --rMax=20"
+							"opts" : "-M Asymptotic -v 2 --X-rtd ADDNLL_RECURSIVE=0 --rMin=-4 --rMax=12"
 					   },
 	"Injected" : {
-							"opts" : "-M Asymptotic -v 2 -t -1 --expectSignal=1 --rMin=-5 --rMax=20"
+							"opts" : "-M Asymptotic -v 2 --X-rtd ADDNLL_RECURSIVE=0 -t -1 --expectSignal=1 --rMin=-4 --rMax=12"
 					   },
 	"ChannelCompatibilityCheck" : {
-												"opts" : "-M ChannelCompatibiltyCheck --saveFitResult --X-rtd FITTER_NEW_CROSSING_ALGO --minimizerAlgoForMinos=Minuit2 --X-rtd FITTER_NEVER_GIVE_UP --X-rtd FITTER_BOUND --minimizerAlgo=Minuit2 --minimizerStrategy=1 --rMin=-50 --rMax=50"
-									      }
+												"opts" : "-M ChannelCompatibiltyCheck --X-rtd FITTER_NEVER_GIVE_UP --X-rtd FITTER_BOUND --X-rtd ADDNLL_RECURSIVE=0 --X-rtd FITTER_NEW_CROSSING_ALGO --saveFitResult --minimizerAlgoForMinos=Minuit2 --minimizerAlgo=Minuit2 --minimizerStrategy=1 --rMin=-40 --rMax=40"
+									      },
+	"MultiDimFit" : { 
+							"opts": "-M MultiDimFit --X-rtd ADDNLL_RECURSIVE=0 --algo none -v 2"
+	}
 }
