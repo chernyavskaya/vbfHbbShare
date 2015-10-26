@@ -1,0 +1,165 @@
+{ 
+"sel": {
+"None": {},
+
+"run194270": {"runNo":[">=","194270"]},
+
+"NOM": {"dEtaqq":[">","2.5"],"mqq":[">","300."],"jetPt[0]":[">","80."],"jetPt[1]":[">","70."],"jetPt[2]":[">","50."],"jetPt[3]":[">","40."]},
+"NOMplusPhi": {"dEtaqq":[">","2.5"],"mqq":[">","250."],"jetPt[0]":[">","80."],"jetPt[1]":[">","70."],"jetPt[2]":[">","50."],"jetPt[3]":[">","40."],"dPhibb":["<","2.0"]},
+"NOMplusPhi0": {"dEtaqq[0]":[">","2.5"],"mqq[0]":[">","250."],"jetPt[0]":[">","80."],"jetPt[1]":[">","70."],"jetPt[2]":[">","50."],"jetPt[3]":[">","40."],"dPhibb[0]":["<","2.0"],"jetBtag[b1[0]]":[">","0.244"],"jetBtag[b2[0]]":[">","0.244"]},
+"NOMplusPhi1": {"dEtaqq[1]":[">","2.5"],"mqq[1]":[">","250."],"jetPt[0]":[">","80."],"jetPt[1]":[">","70."],"jetPt[2]":[">","50."],"jetPt[3]":[">","40."],"dPhibb[1]":["<","2.0"],"jetBtag[b1[0]]":[">","0.244"],"jetBtag[b2[0]]":[">","0.244"]},
+"NOMplusPhi2": {"dEtaqq[2]":[">","2.5"],"mqq[2]":[">","250."],"jetPt[0]":[">","80."],"jetPt[1]":[">","70."],"jetPt[2]":[">","50."],"jetPt[3]":[">","40."],"dPhibb[2]":["<","2.0"],"jetBtag[b1[0]]":[">","0.244"],"jetBtag[b2[0]]":[">","0.244"]},
+
+"NOMplusPhi1NoBtag": {"dEtaqq[1]":[">","2.5"],"mqq[1]":[">","300."],"jetPt[0]":[">","80."],"jetPt[1]":[">","70."],"jetPt[2]":[">","50."],"jetPt[3]":[">","40."],"dPhibb[1]":["<","2.0"]},
+
+
+"mqq0_gt200": {"mqq[0]":[">","200."]},
+"mqq0_gt850": {"mqq[0]":[">","850."]},
+"mqq1_gt850": {"mqq[1]":[">","850."]},
+"mqq1_gt250": {"mqq[1]":[">","250."]},
+"mqq1_gt200": {"mqq[1]":[">","200."]},
+"mqq2_gt850": {"mqq[2]":[">","850."]},
+"mqq2_gt600": {"mqq[2]":[">","600."]},
+"mqq2_gt700": {"mqq[2]":[">","700."]},
+"mqq2_gt800": {"mqq[2]":[">","800."]},
+"mqq2_gt900": {"mqq[2]":[">","900."]},
+"mqq2_gt1000": {"mqq[2]":[">","1000."]},
+"mqq2_lt3000": {"mqq[2]":["<","3000."]},
+
+"mjjTrig_gt850": {"mjjTrig":[">","850."]},
+"mjjTrig_gt800": {"mjjTrig":[">","800."]},
+"mjjTrig_gt700": {"mjjTrig":[">","700."]},
+"mjjTrig_gt600": {"mjjTrig":[">","600."]},
+"mjjTrig_lt2000": {"mjjTrig":["<","2000."]},
+
+"mbbReg2_gt50": {"mbbReg[2]":[">","50."]},
+
+"dEtaqq0_gt2p5": {"dEtaqq[0]":[">","2.5"]},
+"dEtaqq1_gt2p5": {"dEtaqq[1]":[">","2.5"]},
+"dEtaqq1_gt3p5": {"dEtaqq[1]":[">","3.5"]},
+"dEtaqq2_gt3p5": {"dEtaqq[2]":[">","3.5"]},
+"dEtaqq3_gt3p5": {"dEtaqq[3]":[">","3.5"]},
+"dEtaqq2_lt7p0": {"dEtaqq[2]":["<","7.0"]},
+
+"dEtaTrig_gt3p5": {"dEtaTrig":[">","3.5"]},
+"dEtaTrig_gt5p5": {"dEtaTrig":[">","5.5"]},
+"dEtaTrig_lt5p5": {"dEtaTrig":["<","5.5"]},
+
+"dPhibb2_lt2": {"dPhibb[2]":["<","2.0"]},
+"dPhibb1_lt2": {"dPhibb[1]":["<","2.0"]},
+"dPhibb1_lt1p5": {"dPhibb[1]":["<","1.5"]},
+"dPhibb0_lt1p5": {"dPhibb[0]":["<","1.5"]},
+
+"nLeptons": {"nLeptons":["==","0"]},
+
+"jetPt0_gt70": {"jetPt[0]":[">","70."]},
+"jetPt1_gt55": {"jetPt[1]":[">","55."]},
+"jetPt2_gt40": {"jetPt[2]":[">","40."]},
+"jetPt3_gt30": {"jetPt[3]":[">","30."]},
+"jetPt0_gt80": {"jetPt[0]":[">","80."]},
+"jetPt1_gt70": {"jetPt[1]":[">","70."]},
+"jetPt2_gt50": {"jetPt[2]":[">","50."]},
+"jetPt3_gt40": {"jetPt[3]":[">","40."]},
+"jetPt1_gt35": {"jetPt[1]":[">","35."]},
+"jetPt3_gt30": {"jetPt[3]":[">","30."]},
+"jetPtAve_gt80": {"0.5*(jetPt[0]+jetPt[1])":[">","80."]},
+"jetPtAve_gt90": {"0.5*(jetPt[0]+jetPt[1])":[">","90."]},
+"jetPtAve_gt100": {"0.5*(jetPt[0]+jetPt[1])":[">","100."]},
+"jetPtAve_gt110": {"0.5*(jetPt[0]+jetPt[1])":[">","110."]},
+"jetPtAve_gt120": {"0.5*(jetPt[0]+jetPt[1])":[">","120."]},
+"jetPtAve_gt130": {"0.5*(jetPt[0]+jetPt[1])":[">","130."]},
+"jetUnsPt0_gt80": {"jetUnsPt[0]":[">","80."]},
+"jetUnsPt1_gt70": {"jetUnsPt[1]":[">","70."]},
+"jetUnsPt2_gt50": {"jetUnsPt[2]":[">","50."]},
+"jetUnsPt3_gt40": {"jetUnsPt[3]":[">","40."]},
+
+"HT_gt100": {"ht":[">","100."]},
+"HT_gt150": {"ht":[">","150."]},
+"HT_gt200": {"ht":[">","200."]},
+"HT_gt250": {"ht":[">","250."]},
+"HT_gt300": {"ht":[">","300."]},
+"HT_gt350": {"ht":[">","350."]},
+"HT_gt600": {"ht":[">","600."]},
+"HT_lt400": {"ht":["<","400."]},
+"HT_gt400": {"ht":[">","400."]},
+
+"Btag0_ML" : {"jetBtag[b1[0]]":[">","0.679"],"jetBtag[b2[0]]":[">","0.244"]},
+"Btag0_TL" : {"jetBtag[b1[0]]":[">","0.898"],"jetBtag[b2[0]]":[">","0.244"]},
+"Btag0_LL" : {"jetBtag[b1[0]]":[">","0.244"],"jetBtag[b2[0]]":[">","0.244"]},
+"Btag1_ML" : {"jetBtag[b1[1]]":[">","0.679"],"jetBtag[b2[1]]":[">","0.244"]},
+"Btag0_MM" : {"jetBtag[b1[0]]":[">","0.679"],"jetBtag[b2[0]]":[">","0.679"]},
+"Btag1_MM" : {"jetBtag[b1[1]]":[">","0.679"],"jetBtag[b2[1]]":[">","0.679"]},
+"Btag0_TT" : {"jetBtag[b1[0]]":[">","0.898"],"jetBtag[b2[0]]":[">","0.898"]},
+"Btag0_TM" : {"jetBtag[b1[0]]":[">","0.898"],"jetBtag[b2[0]]":[">","0.679"]},
+"Btag2_ML" : {"jetBtag[b1[2]]":[">","0.679"],"jetBtag[b2[2]]":[">","0.244"]},
+"Btag0_T" : {"jetBtag[b1[0]]":[">","0.898"]},
+"Btag0_00" : {"jetBtag[b1[0]]":[">","0.0"],"jetBtag[b2[0]]":[">","0.0"]},
+"Btag0_11" : {"jetBtag[b1[0]]":["<","1.0"],"jetBtag[b2[0]]":["<","1.0"]},
+
+"NOMveto": {"trigger":["!=","NOM"],"selection":["!=","NOMplusPhi1"]},
+"NOMvetoNoBtag": {"trigger":["!=","NOM"],"selection":["!=","NOMplusPhi1NoBtag"]},
+"NOMvetoSelNoBtag": {"selection":["!=","NOMplusPhi1NoBtag"]},
+"NOMtrgveto": {"trigger":["!=","NOM"]},
+
+"sNOMveto": {"trigger":["!=","NOM"],"selection":["!=","sNOM"]},
+"sNOM": {"selNOM":["==","1"]},
+"sVBF": {"selVBF":["==","1"]},
+
+"NOMold": {"dEtaqq":[">","2.5"],"mqq":[">","300."],"jetPt[0]":[">","85."],"jetPt[1]":[">","70."],"jetPt[2]":[">","60."],"jetPt[3]":[">","40."]},
+"NOMoldPlusPhi": {"dEtaqq":[">","2.5"],"mqq":[">","300."],"jetPt[0]":[">","85."],"jetPt[1]":[">","70."],"jetPt[2]":[">","60."],"jetPt[3]":[">","40."],"dPhibb":["<","2.0"]},
+"NOMoldPlusPhi1": {"dEtaqq[1]":[">","2.5"],"mqq[1]":[">","300."],"jetPt[0]":[">","85."],"jetPt[1]":[">","70."],"jetPt[2]":[">","60."],"jetPt[3]":[">","40."],"dPhibb[1]":["<","2.0"]},
+
+"ElfMuf": {"jetElf[0]":["<","0.7"],"jetElf[1]":["<","0.7"],"jetElf[2]":["<","0.7"],"jetElf[3]":["<","0.7"],"jetMuf[0]":["<","0.7"],"jetMuf[1]":["<","0.7"],"jetMuf[2]":["<","0.7"],"jetMuf[3]":["<","0.7"]},
+
+"Btag0": {"jetBtag[btagIdx[0]]": [">","0."], "jetBtag[btagIdx[1]]": [">","0."]},
+"Btag0btagIdx": {"jetBtag[b1[0]]": [">","0."], "jetBtag[b2[0]]": [">","0."]},
+"Btag0blikNOM": {"jetBtag[b1[1]]": [">","0."], "jetBtag[b2[1]]": [">","0."]},
+"Btag0blikVBF": {"jetBtag[b1[2]]": [">","0."], "jetBtag[b2[2]]": [">","0."]},
+
+"puId": {"puId[0]": ["==","1"]},
+"softHt": {"softHt": ["<","200."]},
+"softHt20": {"softHt": ["<","20."]},
+
+"QGL3": {"jetQGLnew[btagIdx[3]]": ["<","0.7"]},
+"QGL2": {"jetQGLnew[btagIdx[2]]": ["<","0.4"]},
+
+"check1CSV0": {"jetBtag[btagIdx[0]]":[">","0.679"]},
+"check2CSV1": {"jetBtag[btagIdx[1]]":[">","0.5"]},
+"check3QGL2": {"jetQGLnew[btagIdx[2]]": ["<","0.7"]},
+"check4QGL3": {"jetQGLnew[btagIdx[3]]": ["<","0.4"]},
+
+"CAT0":{"MLP":["<","0.52"] },
+"CAT1":{"MLP":[">=","0.52","<","0.76"] },
+"CAT2":{"MLP":[">=","0.76","<","0.90"] },
+"CAT3":{"MLP":[">=","0.90","<","0.96"] },
+"CAT4":{"MLP":[">=","0.96"] },
+
+"mvaNOMC0":{"mvaNOM":[">","-1.001","<=","-0.60"]},
+"mvaNOMC1":{"mvaNOM":[">","-0.60","<=","0.0"]},
+"mvaNOMC2":{"mvaNOM":[">","0.0","<=","0.70"]},
+"mvaNOMC3":{"mvaNOM":[">","0.70","<=","0.84"]},
+"mvaNOMC4":{"mvaNOM":[">","0.84","<=","1.001"]},
+"mvaVBFC0":{"mvaVBF":[">","-1.001","<=","-0.10"]},
+"mvaVBFC1":{"mvaVBF":[">","-0.10","<=","0.40"]},
+"mvaVBFC2":{"mvaVBF":[">","0.40","<=","0.80"]},
+"mvaVBFC3":{"mvaVBF":[">","0.80","<=","1.001"]},
+
+"MBBPart":{"mbbParton":[">","75.","<","255."] },
+"MBB":{"mbb":[">","110.","<","140."] },
+"MBBREG1":{"mbbReg[1]":[">=","80.","<=","200."] },
+"MBBREG2":{"mbbReg[2]":[">=","80.","<=","200."] }
+},
+
+	
+"trg": {
+"None": [],
+"NOM": ["HLT_QuadPFJet75_55_35_20_BTagCSV_VBF_v* OR HLT_QuadPFJet75_55_38_20_BTagCSV_VBF_v* OR HLT_QuadPFJet78_61_44_31_BTagCSV_VBF_v* OR HLT_QuadPFJet82_65_48_35_BTagCSV_VBF_v*","HLT_QuadJet75_55_35_20_BTagIP_VBF_v* OR HLT_QuadJet75_55_38_20_BTagIP_VBF_v*"],
+"NOMMC": ["HLT_QuadPFJet82_65_48_35_BTagCSV_VBF_v*","HLT_QuadJet75_55_38_20_BTagIP_VBF_v*"],
+"VBF": ["HLT_DiJet35_MJJ700_AllJets_DEta3p5_VBF_v*"],
+"VBFOR": ["HLT_DiJet35_MJJ650_AllJets_DEta3p5_VBF_v*","HLT_DiJet35_MJJ700_AllJets_DEta3p5_VBF_v*","HLT_DiJet35_MJJ750_AllJets_DEta3p5_VBF_v*"],
+"QJT": ["HLT_QuadJet50_v*"],
+"PF80": ["HLT_PFJet80_v*"],
+"AV40": ["HLT_DiPFJetAve40_v*"],
+"AV80": ["HLT_DiPFJetAve80_v*"]
+}
+}

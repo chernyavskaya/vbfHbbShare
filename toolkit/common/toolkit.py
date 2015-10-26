@@ -103,10 +103,6 @@ def setdefaults(option,opt,value,parser):
 		l2("Set from opts file: %s --> %s"%(ok,oval))		
 	globalpath=''
 	try: 
-		if any(['schrodinger' in x for x in os.uname()]) and parser.values.fileformat=='1': globalpath = '/data/UAData/paper2012'
-		if any(['schrodinger' in x for x in os.uname()]) and parser.values.fileformat=='2': globalpath = '/data/UAData/autumn2013'
-		if os.getlogin()=='xjanssen' and parser.values.fileformat=='1': globalpath = '/Users/xjanssen/cms/vbfHbb2012/vbfHbb_flattree/KK_Paper'
-		if os.getlogin()=='xjanssen' and parser.values.fileformat=='2': globalpath = '/Users/xjanssen/cms/vbfHbb2012/vbfHbb_ParkAna_flattree/v0'
 		if any(['lxplus' in x for x in os.uname()]) and os.getlogin()=='salderwe' and parser.values.fileformat=='1': globalpath='/afs/cern.ch/work/s/salderwe/groups/Hbb/paper2012/'
 		if any(['lxplus' in x for x in os.uname()]) and os.getlogin()=='salderwe' and parser.values.fileformat=='2': globalpath='/afs/cern.ch/user/s/salderwe/eosaccess/cms/store/cmst3/group/vbfhbb/flat/'#work/s/salderwe/groups/Hbb/autumn2013'
 	except:
