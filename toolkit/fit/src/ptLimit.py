@@ -118,7 +118,6 @@ def main(opts,limnames):
 			if not 'Inj' in limnames[ilimit]: 
 				lists['aMass'][mi] = dc(mh)
 				lists['aMassErr'][mi] = 0.
-				print lists['aMass']
 			if not any(['Inj' in x for x in limnames]):
 				lists['InjLimit'][mi] = 0.
 		elif 'Profile' in limnames[ilimit]:
@@ -136,7 +135,6 @@ def main(opts,limnames):
 				elif ientry == 1:   lists['Mu68D'][mi] = dc(lm) - lists['Mu'][mi]
 				elif ientry == 2:   lists['Mu68U'][mi] = dc(lm) - lists['Mu'][mi]
 				else: print "unknown case!", ientry, lm, mh
-		print lists
 		print
 
 	print
@@ -167,7 +165,7 @@ def main(opts,limnames):
 	print
 	print "%6s | %8s | %8s | %8s | %8s | %8s | %20s |"%("mH","ExpLim","ObsLim","InjLim","ExpSig","ObsSig","Mu")
 	print "-"*86
-	for i,m in enumerate(range(115,140,5)):
+	for i,m in enumerate(masses):#enumerate(range(115,140,5)):		
 		print "%6d |"%m,
 		print "%8.2f |"%arrays['ExpLimitMed'][i],
 		try: print "%8.2f |"%arrays['ObsLimit'][i],
