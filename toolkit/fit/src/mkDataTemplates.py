@@ -194,7 +194,7 @@ def main():
 			for ib in range(opts.BRN[iS]+1):
 				if C>0: continue
 				nb = "b%d_sel%s_CAT%d"%(ib,S.tag,Cp)
-				brn[nb] = RooRealVar(nb,nb,0.5,0,100.)
+				brn[nb] = RooRealVar(nb,nb,0.5,0,10.)
 				nbp = "sel%s_CAT%d"%(S.tag,Cp)
 				if not nbp in brn_params: brn_params[nbp] = RooArgList()
 				brn_params[nbp].add(brn[nb])
