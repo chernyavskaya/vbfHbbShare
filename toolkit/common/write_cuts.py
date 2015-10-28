@@ -4,7 +4,7 @@ import sys,json,os
 basepath=os.path.split(os.path.abspath(__file__))[0]
 sys.path.append(basepath)
 
-import main
+#import main
 from toolkit import *
 from copy import deepcopy as dc
 from optparse import OptionParser,OptionGroup

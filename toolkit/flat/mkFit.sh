@@ -9,9 +9,9 @@ if [[ "`uname -a`" == *lxplus* ]]; then
 fi
 
 variablesslim="$basepath/../../common/vbfHbb_variables_2013_bareslim.json"
-globalpathskimslim="$basepath/fitforflat/"
+globalpathskimslim="$basepath/fitforflat"
 samples="VBF,GluGlu,Data,T,WJets,ZJets,QCD"
-samples="Data"
+#samples="Data"
 
 preselNOM="sNOM;nLeptons"
 preselVBF="sVBF;nLeptons;sNOMveto"
@@ -20,10 +20,10 @@ NOweight="1."
 
 ##################################################
 # NOM FitFlatTrees
-$basepath/src/mkFitFlatTrees.py -d -D "$defaultopts" -G "$globalpath" --destination "${globalpathskimslim}/" -t "NOM" --datatrigger "NOM" -p "$preselNOM" -s "$samples" -w "$NOweight" --usebool 
+python $basepath/src/mkFitFlatTrees.py -d -D "$defaultopts" -G "$globalpath" --destination "${globalpathskimslim}/" -t "NOM" --datatrigger "NOM" -p "$preselNOM" -s "$samples" -w "$NOweight" --usebool 
 	
 # VBF FitFlatTrees
-$basepath/src/mkFitFlatTrees.py -d -D "$defaultopts" -G "$globalpath" --destination "${globalpathskimslim}/" -t "VBF" --datatrigger "VBF" -p "$preselVBF" -s "$samples" -w "$NOweight" --usebool
+python $basepath/src/mkFitFlatTrees.py -d -D "$defaultopts" -G "$globalpath" --destination "${globalpathskimslim}/" -t "VBF" --datatrigger "VBF" -p "$preselVBF" -s "$samples" -w "$NOweight" --usebool
 
 if [ ! -d ${globalpathskimslim}/dataSeparate ]; then mkdir ${globalpathskimslim}/dataSeparate; fi
 if [ ! -f ${globalpathskimslim}/Fit_MultiJetA_selNOM.root ]; then mv ${globalpathskimslim}/dataSeparate/Fit_{MultiJet,BJetPlusX,VBF1Parked}*.root ${globalpathskimslim}/; fi

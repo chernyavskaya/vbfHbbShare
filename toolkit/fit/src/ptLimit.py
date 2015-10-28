@@ -54,7 +54,7 @@ def main(opts,limnames):
 	os.chdir(path)
 
 # Set ROOT style
-	gROOT.ProcessLine(".x /afs/cern.ch/work/s/salderwe/private/2014/vbfHbb/kostas/../common/styleCMSTDR.C")
+	gROOT.ProcessLine(".x /afs/cern.ch/work/n/nchernya/Hbb/setTDRStyle.C")
 	gROOT.ProcessLine('gROOT->ForceStyle();')
 	gStyle.SetPadLeftMargin(0.12)
 	gStyle.SetPadRightMargin(0.04)

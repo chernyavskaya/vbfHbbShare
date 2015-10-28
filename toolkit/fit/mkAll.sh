@@ -28,7 +28,7 @@ options="\n
    5\tmkDatacards\n
 	6\tmkDatacards (CATvetoes)\n
 	\n
-	1A\tall limit calculations 10-16 (not 17)\n
+	1A\tall limit calculations 10-16 (not 12,17,18)\n
 	10\tmkToys\n
 	11\tmkAsymptotic limits\n
 	12\tmkAsymptotic limits (vetoes)\n
@@ -121,13 +121,13 @@ if [ "${ACTION}" == "0" ] || [ "${ACTION}" == "1A" ] || [ "${ACTION}" == "11" ];
 	eval ${cmd}
 fi
 ##################################################
-if [ "${ACTION}" == "0" ] || [ "${ACTION}" == "1A" ] || [ "${ACTION}" == "12" ];then
-	for c in "1" "2" "3" "5" "6" "4,5,6" "0,1,2,3"; do
-		cmd="./src/mkLimit.py -t Asymptotic -m 125 -n vbfHbb --long --workdir ${WORKDIR} -V $c"
-		echo ${cmd}
-		eval ${cmd} 
-	done
-fi
+#if [ "${ACTION}" == "0" ] || [ "${ACTION}" == "1A" ] || [ "${ACTION}" == "12" ];then
+#	for c in "1" "2" "3" "5" "6" "4,5,6" "0,1,2,3"; do
+#		cmd="./src/mkLimit.py -t Asymptotic -m 125 -n vbfHbb --long --workdir ${WORKDIR} -V $c"
+#		echo ${cmd}
+#		eval ${cmd} 
+#	done
+#fi
 ##################################################
 if [ "${ACTION}" == "0" ] || [ "${ACTION}" == "1A" ] || [ "${ACTION}" == "13" ];then
 	finj=`ls -m ${WORKDIR}/combine/higgsCombine*GenerateOnly*125*root | xargs basename`
