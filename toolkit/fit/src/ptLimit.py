@@ -165,7 +165,7 @@ def main(opts,limnames):
 	print
 	print "%6s | %8s | %8s | %8s | %8s | %8s | %20s |"%("mH","ExpLim","ObsLim","InjLim","ExpSig","ObsSig","Mu")
 	print "-"*86
-	for i,m in enumerate(masses):#enumerate(range(115,140,5)):
+	for i,m in enumerate(masses):#enumerate(range(115,140,5)):		
 		print "%6d |"%m,
 		print "%8.2f |"%arrays['ExpLimitMed'][i],
 		try: print "%8.2f |"%arrays['ObsLimit'][i],
