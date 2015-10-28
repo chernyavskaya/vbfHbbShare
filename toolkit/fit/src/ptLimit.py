@@ -88,6 +88,7 @@ def main(opts,limnames):
 			pass
 	
 	masses = sorted(list(set(masses)))
+	print
 	
 ####################
 # Prepare containers
@@ -97,9 +98,9 @@ def main(opts,limnames):
 	
 # Loop over files and fill containers
 	for ilimit, limit in enumerate(limits):
-		print limfiles[ilimit]
+#		print limfiles[ilimit]
 		nentries = limit.GetEntries()
-		limit.Print()
+#		limit.Print()
 		lm, mh = treeAccess(limit)
 		if 'Asymptotic' in limnames[ilimit]:
 			for ientry in range(nentries):
@@ -112,9 +113,9 @@ def main(opts,limnames):
 				else: print "unknown case!", ientry, lm, mh
 			if len(lists['ExpLimit68U'])>0:
 				for k in ['Exp68U','Exp95U']:
-					map(operator.sub, lists[k], lists['ExpLimitMed'])
+					lists[k] = map(operator.sub, lists[k.replace('Exp','ExpLimit')], lists['ExpLimitMed'])
 				for k in ['Exp68D','Exp95D']:
-					map(operator.sub, lists['ExpLimitMed'], lists[k])
+					lists[k] = map(operator.sub, lists['ExpLimitMed'], lists[k.replace('Exp','ExpLimit')])
 			if not 'Inj' in limnames[ilimit]: 
 				lists['aMass'][mi] = dc(mh)
 				lists['aMassErr'][mi] = 0.
@@ -134,8 +135,12 @@ def main(opts,limnames):
 				if ientry == 0:     lists['Mu'][mi] = dc(lm)
 				elif ientry == 1:   lists['Mu68D'][mi] = dc(lm) - lists['Mu'][mi]
 				elif ientry == 2:   lists['Mu68U'][mi] = dc(lm) - lists['Mu'][mi]
+				elif ientry == 3 and lm == lists['Mu'][mi]: continue
 				else: print "unknown case!", ientry, lm, mh
-		print
+#		print
+	
+	for k,v in sorted(lists.iteritems()):
+		print k,v
 
 	print
 	arrays = dict([(k,array('d',v)) for (k,v) in lists.iteritems()])
@@ -153,11 +158,11 @@ def main(opts,limnames):
 
 ####################
 # Print output to screen
-	print limitplotband95.Print()
-	print limitplotband68.Print()
-	print limitplotexp.Print()
-	print limitplotobs.Print()
-	print limitplotinj.Print()
+### 	print limitplotband95.Print()
+### 	print limitplotband68.Print()
+### 	print limitplotexp.Print()
+### 	print limitplotobs.Print()
+### 	print limitplotinj.Print()
 
 # Print table resembling analysis note to screen
 	print "#"*200
