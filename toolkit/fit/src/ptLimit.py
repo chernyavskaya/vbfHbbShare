@@ -27,17 +27,13 @@ def treeAccess(tree):
 
 	_lm = numpy.array(1,'d')
 	_mh = numpy.array(1,'d')
-	_q  = numpy.array(1,'d')
 
 	tree.SetBranchStatus('limit',1)
 	tree.SetBranchStatus('mh'   ,1)
 	tree.SetBranchAddress('limit',_lm)
 	tree.SetBranchAddress('mh',   _mh)
-	tree.SetBranchStatus('quantileExpected'   ,1)
-	tree.SetBranchAddress('quantileExpected',_q)
 
-
-	return _lm, _mh, _q
+	return _lm, _mh
 
 ####################################################################################################
 def localParser():
@@ -105,7 +101,7 @@ def main(opts,limnames):
 #		print limfiles[ilimit]
 		nentries = limit.GetEntries()
 #		limit.Print()
-		lm, mh, q = treeAccess(limit)
+		lm, mh = treeAccess(limit)
 		if 'Asymptotic' in limnames[ilimit]:
 			for ientry in range(nentries):
 				limit.GetEntry(ientry)
@@ -143,7 +139,7 @@ def main(opts,limnames):
 				else: print "unknown case!", ientry, lm, mh
 #		print
 	
-	for k,v in lists.iteritems():
+	for k,v in sorted(lists.iteritems()):
 		print k,v
 
 	print
