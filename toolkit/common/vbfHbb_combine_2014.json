@@ -6,7 +6,7 @@
 	       							"opts" : "-M ProfileLikelihood --X-rtd ADDNLL_RECURSIVE=0 --significance -t -1 --expectSignal=1 --toysFreq"
 									 },
 	"ProfileLikelihoodObs" : {
-	       							"opts" : "-M ProfileLikelihood --X-rtd ADDNLL_RECURSIVE=0 --significance --bruteForce --preFit --scanPoints=80 -v 2 --minimizerTolerance=0.010"
+	       							"opts" : "-M ProfileLikelihood --X-rtd ADDNLL_RECURSIVE=0 --significance --bruteForce --preFit --scanPoints=160 -v 2 --minimizerTolerance=0.010"
 	  							    },
 	"MaxLikelihoodFit" : {
 	       							"opts" : "-M MaxLikelihoodFit -v 2 --X-rtd FITTER_NEVER_GIVE_UP --X-rtd FITTER_BOUND --X-rtd ADDNLL_RECURSIVE=0 --X-rtd FITTER_NEW_CROSSING_ALGO --saveNormalizations --plots --stepSize=0.05 --preFitValue=2.0 --robustFit=1 --minimizerAlgoForMinos=Minuit2 --minimizerToleranceForMinos=0.01 --minimizerTolerance=0.01 --cminFallbackAlgo Minuit,0.005 --minimizerStrategy=1 --rMin=-4 --rMax=8"
