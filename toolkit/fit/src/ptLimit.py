@@ -27,13 +27,17 @@ def treeAccess(tree):
 
 	_lm = numpy.array(1,'d')
 	_mh = numpy.array(1,'d')
+	_q  = numpy.array(1,'d')
 
 	tree.SetBranchStatus('limit',1)
 	tree.SetBranchStatus('mh'   ,1)
 	tree.SetBranchAddress('limit',_lm)
 	tree.SetBranchAddress('mh',   _mh)
+	tree.SetBranchStatus('quantileExpected'   ,1)
+	tree.SetBranchAddress('quantileExpected',_q)
 
-	return _lm, _mh
+
+	return _lm, _mh, _q
 
 ####################################################################################################
 def localParser():
@@ -88,6 +92,7 @@ def main(opts,limnames):
 			pass
 	
 	masses = sorted(list(set(masses)))
+	print
 	
 ####################
 # Prepare containers
@@ -97,10 +102,10 @@ def main(opts,limnames):
 	
 # Loop over files and fill containers
 	for ilimit, limit in enumerate(limits):
-		print limfiles[ilimit]
+#		print limfiles[ilimit]
 		nentries = limit.GetEntries()
-		limit.Print()
-		lm, mh = treeAccess(limit)
+#		limit.Print()
+		lm, mh, q = treeAccess(limit)
 		if 'Asymptotic' in limnames[ilimit]:
 			for ientry in range(nentries):
 				limit.GetEntry(ientry)
@@ -134,14 +139,15 @@ def main(opts,limnames):
 				if ientry == 0:     lists['Mu'][mi] = dc(lm)
 				elif ientry == 1:   lists['Mu68D'][mi] = dc(lm) - lists['Mu'][mi]
 				elif ientry == 2:   lists['Mu68U'][mi] = dc(lm) - lists['Mu'][mi]
+				elif ientry == 3 and lm == lists['Mu'][mi]: continue
 				else: print "unknown case!", ientry, lm, mh
-		print
-		print lists
+#		print
+	
+	for k,v in lists.iteritems():
+		print k,v
 
 	print
 	arrays = dict([(k,array('d',v)) for (k,v) in lists.iteritems()])
-	print arrays['Exp68D'] 
-	print arrays['Exp68U'] 
 
 ####################
 # Prepare plot
@@ -156,11 +162,11 @@ def main(opts,limnames):
 
 ####################
 # Print output to screen
-	print limitplotband95.Print()
-	print limitplotband68.Print()
-	print limitplotexp.Print()
-	print limitplotobs.Print()
-	print limitplotinj.Print()
+### 	print limitplotband95.Print()
+### 	print limitplotband68.Print()
+### 	print limitplotexp.Print()
+### 	print limitplotobs.Print()
+### 	print limitplotinj.Print()
 
 # Print table resembling analysis note to screen
 	print "#"*200
