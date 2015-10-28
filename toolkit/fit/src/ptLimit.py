@@ -112,9 +112,9 @@ def main(opts,limnames):
 				else: print "unknown case!", ientry, lm, mh
 			if len(lists['ExpLimit68U'])>0:
 				for k in ['Exp68U','Exp95U']:
-					map(operator.sub, lists[k], lists['ExpLimitMed'])
+					lists[k] = map(operator.sub, lists[k.replace('Exp','ExpLimit')], lists['ExpLimitMed'])
 				for k in ['Exp68D','Exp95D']:
-					map(operator.sub, lists['ExpLimitMed'], lists[k])
+					lists[k] = map(operator.sub, lists['ExpLimitMed'], lists[k.replace('Exp','ExpLimit')])
 			if not 'Inj' in limnames[ilimit]: 
 				lists['aMass'][mi] = dc(mh)
 				lists['aMassErr'][mi] = 0.
@@ -136,9 +136,12 @@ def main(opts,limnames):
 				elif ientry == 2:   lists['Mu68U'][mi] = dc(lm) - lists['Mu'][mi]
 				else: print "unknown case!", ientry, lm, mh
 		print
+		print lists
 
 	print
 	arrays = dict([(k,array('d',v)) for (k,v) in lists.iteritems()])
+	print arrays['Exp68D'] 
+	print arrays['Exp68U'] 
 
 ####################
 # Prepare plot
