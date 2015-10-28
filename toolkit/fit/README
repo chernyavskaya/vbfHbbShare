@@ -1,0 +1,7 @@
+## instuctions to update with Sara
+
+git fetch real-origin
+git merge real-origin/CMSSW_7_1_18
+git checkout nchernya
+git merge real-origin/CMSSW_7_1_18
+
