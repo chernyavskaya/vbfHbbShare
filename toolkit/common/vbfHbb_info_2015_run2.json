@@ -1,0 +1,12 @@
+{
+ "luminosities":{"HLT_PFJetAve40_v*":126.518,"HLT_PFJetAve80_v*":3592.448},
+ "markers":
+ {"VBF125": 33, "QCD100": 22,"QCD200": 22, "QCD300": 22, "QCD500": 22, "QCD700": 22, "QCD1000": 22,"QCD1500": 22,"QCD2000": 22,   "QCD":22},
+ "colours":
+ {"VBF125": 206, "VBF120": 206, "WJets": 390,  "TTJets": 30, "VBF130": 206, "ZJets": 384, "Data": 1, "VBF135": 206, "GluGlu-Powheg125": 214, "singleTtW": 210 ,"QCD100": 38,"QCD200": 38, "QCD300": 38, "QCD500": 38, "QCD700": 38, "QCD1000": 38,"QCD1500": 38,"QCD2000": 38,  "QCD":38}, 
+  "crosssections":
+ {"VBF125": 2.16, "ZJets" : 1461.0 , "QCD100" : 2.75E07, "QCD200" : 1.74E06, "QCD300" : 3.67E05, "QCD500" : 2.94E04, "QCD700" : 6.52E03, "QCD1000" : 1.064E03 , "QCD1500" : 121.5 , "QCD2000" : 2.54E01 , "singleTtW" : 71.7, "TTJets" : 816.0, "Data" : -1.0 , "GluGlu-Powheg125" : 25.17 }, 
+  "groups":
+ {"VBF125": "VBF", "ZJets": "ZJets", "QCD100": "QCD", "VBF120": "VBF", "QCD200": "QCD", "QCD300": "QCD", "QCD500": "QCD", "QCD700" : "QCD", "QCD1000" : "QCD" , "QCD1500" : "QCD" , "QCD2000" : "QCD" ,  "singleTtW": "singleT", "TTJets": "TTJets","VBF130": "VBF", "Data": "Data", "GluGlu-Powheg125": "GF" }, 
+  "tags":
+ {"Data": ["BTagCSV"], "VBF125": ["VBF125", "Signal125", "Powheg125","VBFHToBB_M-125"], "QCD100": ["QCD100", "HT100to200"], "QCD200": ["QCD200", "HT200to300"], "QCD300": ["QCD300", "HT300to500"], "QCD500": ["QCD500", "HT500to700"], "QCD700": ["QCD700", "HT700t1000"], "QCD1000": ["QCD1000", "HT1000to1500"], "QCD1500": ["QCD1500", "HT1500to2000"], "QCD2000": ["QCD2000", "HT2000toInf"],   "ZJets" : ["_ZJets","DYtoQQ"] ,    "WJets": ["_WJets"], "singleT": ["ST_"],"singleTtW": ["_T_tW-","ST_tW"], "TTJets": ["TTJets","TTbar"],  "GluGlu-Powheg125": ["GF","GluGlu-Powheg125","GFPowheg125"]}}
